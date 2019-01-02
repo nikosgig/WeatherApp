@@ -33,33 +33,27 @@ public class MainActivity extends AppCompatActivity {
         responseText = findViewById(R.id.responseText);
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
-
         /**
          GET city
          **/
-        Call<City> call = apiInterface.doGetCity();
-        call.enqueue(new Callback<City>() {
+        Call<Example> call = apiInterface.doGetExample();
+        call.enqueue(new Callback<Example>() {
             @Override
-            public void onResponse(Call<City> call, Response<City> response) {
+            public void onResponse(Call<Example> call, Response<Example> response) {
 
-
-                Log.d("TAG",response.code()+"\n");
-
-                City resource = response.body();
-                String cityName = resource.getName();
-
-                Log.d("OBJECT",resource.toString()+" ");
-                Log.d("CITY NAME",resource.getName()+" ");
-
+                //Log.d("TAG",response.code()+"\n");
+                //Log.d("TAG",response.body()+"\n");
+                Example resource = response.body();
+                String cityName = resource.getCity().getName();
                 responseText.setText(cityName);
 
             }
 
             @Override
-            public void onFailure(Call<City> call, Throwable t) {
+            public void onFailure(Call<Example> call, Throwable t) {
+                t.printStackTrace();
                 call.cancel();
             }
         });
-
     }
 }
