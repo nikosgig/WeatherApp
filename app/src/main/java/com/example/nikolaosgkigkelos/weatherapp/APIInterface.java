@@ -23,7 +23,7 @@ import retrofit2.http.Query;
 interface APIInterface {
 
     //bad practise
-    @GET("/data/2.5/forecast?lat=55.5&lon=37.5&cnt=10&appid=0fd5dccd2daa256473fabfff3b8c1e59")
-    Call<City> doGetCity();
+    @GET("/data/2.5/forecast?lat=37.9&lon=23.7&cnt=10&appid=0fd5dccd2daa256473fabfff3b8c1e59")
+    Call<Example> doGetExample();
 
 }
